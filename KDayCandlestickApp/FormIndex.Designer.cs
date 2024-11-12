@@ -31,27 +31,24 @@
             tabControl1 = new TabControl();
             tabPageChoose = new TabPage();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridViewDaily = new DataGridView();
             groupBox1 = new GroupBox();
             groupBox2 = new GroupBox();
-            radioButtonValueRateDN = new RadioButton();
-            radioButtonValueRangeUP = new RadioButton();
-            radioButtonValueDN = new RadioButton();
-            radioButtonValueUP = new RadioButton();
+            radioButtonToday = new RadioButton();
+            radioButtonStockAmountSort = new RadioButton();
+            radioButtonDnSort = new RadioButton();
+            radioButtonUpSort = new RadioButton();
             label4 = new Label();
-            textBox3 = new TextBox();
+            textBoxCount = new TextBox();
             buttonPriceSearch = new Button();
-            radioButtonPriceRangeDN = new RadioButton();
-            radioButtonPriceRangeUP = new RadioButton();
-            radioButtonPriceDN = new RadioButton();
-            radioButtonPriceUP = new RadioButton();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label2 = new Label();
-            label3 = new Label();
             tabPageBackTest = new TabPage();
             cartesianChart1 = new LiveChartsCore.SkiaSharpView.WinForms.CartesianChart();
             groupBox3 = new GroupBox();
+            comboBoxRTMonthsE = new ComboBox();
+            comboBoxRTYearsE = new ComboBox();
+            comboBoxRTStockNo = new ComboBox();
+            comboBoxRTMonthsB = new ComboBox();
+            comboBoxRTYearsB = new ComboBox();
             groupBox5 = new GroupBox();
             checkBox1 = new CheckBox();
             checkBox2 = new CheckBox();
@@ -62,7 +59,6 @@
             label10 = new Label();
             textBox7 = new TextBox();
             button2 = new Button();
-            textBoxCode = new TextBox();
             label9 = new Label();
             groupBox4 = new GroupBox();
             checkBoxCheck4 = new CheckBox();
@@ -74,16 +70,23 @@
             label6 = new Label();
             textBox4 = new TextBox();
             button1 = new Button();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
             label7 = new Label();
             label8 = new Label();
             tabPageSetup = new TabPage();
+            comboBoxStockNo = new ComboBox();
+            label11 = new Label();
+            comboBoxMonths = new ComboBox();
+            comboBoxYears = new ComboBox();
+            label12 = new Label();
             buttonDownload = new Button();
             label1 = new Label();
+            radioButtonSAll = new RadioButton();
+            radioButtonE = new RadioButton();
+            radioButtonB = new RadioButton();
+            radioButtonM = new RadioButton();
             tabControl1.SuspendLayout();
             tabPageChoose.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDaily).BeginInit();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
             tabPageBackTest.SuspendLayout();
@@ -103,18 +106,18 @@
             tabControl1.Location = new Point(0, 0);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1146, 955);
+            tabControl1.Size = new Size(1220, 955);
             tabControl1.TabIndex = 0;
             // 
             // tabPageChoose
             // 
             tabPageChoose.Controls.Add(label5);
-            tabPageChoose.Controls.Add(dataGridView1);
+            tabPageChoose.Controls.Add(dataGridViewDaily);
             tabPageChoose.Controls.Add(groupBox1);
             tabPageChoose.Location = new Point(4, 34);
             tabPageChoose.Name = "tabPageChoose";
             tabPageChoose.Padding = new Padding(3);
-            tabPageChoose.Size = new Size(1138, 917);
+            tabPageChoose.Size = new Size(1212, 917);
             tabPageChoose.TabIndex = 0;
             tabPageChoose.Text = "選股";
             tabPageChoose.UseVisualStyleBackColor = true;
@@ -122,199 +125,119 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(8, 251);
+            label5.Location = new Point(8, 229);
             label5.Name = "label5";
             label5.Size = new Size(92, 25);
             label5.TabIndex = 5;
             label5.Text = "查詢結果";
             // 
-            // dataGridView1
+            // dataGridViewDaily
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(8, 279);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(1035, 461);
-            dataGridView1.TabIndex = 3;
+            dataGridViewDaily.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewDaily.Location = new Point(8, 257);
+            dataGridViewDaily.Name = "dataGridViewDaily";
+            dataGridViewDaily.RowHeadersWidth = 51;
+            dataGridViewDaily.Size = new Size(1035, 652);
+            dataGridViewDaily.TabIndex = 3;
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(radioButtonSAll);
+            groupBox1.Controls.Add(radioButtonE);
+            groupBox1.Controls.Add(radioButtonB);
+            groupBox1.Controls.Add(radioButtonM);
             groupBox1.Controls.Add(groupBox2);
-            groupBox1.Controls.Add(textBox2);
-            groupBox1.Controls.Add(textBox1);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(label3);
             groupBox1.Location = new Point(8, 6);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(1035, 235);
+            groupBox1.Size = new Size(1035, 210);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
-            groupBox1.Text = "●選股邏輯";
+            groupBox1.Text = "●當日收盤行情";
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(radioButtonValueRateDN);
-            groupBox2.Controls.Add(radioButtonValueRangeUP);
-            groupBox2.Controls.Add(radioButtonValueDN);
-            groupBox2.Controls.Add(radioButtonValueUP);
+            groupBox2.Controls.Add(radioButtonToday);
+            groupBox2.Controls.Add(radioButtonStockAmountSort);
+            groupBox2.Controls.Add(radioButtonDnSort);
+            groupBox2.Controls.Add(radioButtonUpSort);
             groupBox2.Controls.Add(label4);
-            groupBox2.Controls.Add(textBox3);
+            groupBox2.Controls.Add(textBoxCount);
             groupBox2.Controls.Add(buttonPriceSearch);
-            groupBox2.Controls.Add(radioButtonPriceRangeDN);
-            groupBox2.Controls.Add(radioButtonPriceRangeUP);
-            groupBox2.Controls.Add(radioButtonPriceDN);
-            groupBox2.Controls.Add(radioButtonPriceUP);
             groupBox2.Location = new Point(23, 70);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(991, 137);
+            groupBox2.Size = new Size(991, 120);
             groupBox2.TabIndex = 4;
             groupBox2.TabStop = false;
             groupBox2.Text = "量價排行";
             // 
-            // radioButtonValueRateDN
+            // radioButtonToday
             // 
-            radioButtonValueRateDN.AutoSize = true;
-            radioButtonValueRateDN.Location = new Point(407, 36);
-            radioButtonValueRateDN.Name = "radioButtonValueRateDN";
-            radioButtonValueRateDN.Size = new Size(133, 29);
-            radioButtonValueRateDN.TabIndex = 9;
-            radioButtonValueRateDN.TabStop = true;
-            radioButtonValueRateDN.Text = "量縮幅排行";
-            radioButtonValueRateDN.UseVisualStyleBackColor = true;
+            radioButtonToday.AutoSize = true;
+            radioButtonToday.Checked = true;
+            radioButtonToday.Location = new Point(19, 32);
+            radioButtonToday.Name = "radioButtonToday";
+            radioButtonToday.Size = new Size(113, 29);
+            radioButtonToday.TabIndex = 13;
+            radioButtonToday.TabStop = true;
+            radioButtonToday.Text = "當日收盤";
+            radioButtonToday.UseVisualStyleBackColor = true;
             // 
-            // radioButtonValueRangeUP
+            // radioButtonStockAmountSort
             // 
-            radioButtonValueRangeUP.AutoSize = true;
-            radioButtonValueRangeUP.Location = new Point(268, 36);
-            radioButtonValueRangeUP.Name = "radioButtonValueRangeUP";
-            radioButtonValueRangeUP.Size = new Size(133, 29);
-            radioButtonValueRangeUP.TabIndex = 8;
-            radioButtonValueRangeUP.TabStop = true;
-            radioButtonValueRangeUP.Text = "量增幅排行";
-            radioButtonValueRangeUP.UseVisualStyleBackColor = true;
+            radioButtonStockAmountSort.AutoSize = true;
+            radioButtonStockAmountSort.Location = new Point(376, 32);
+            radioButtonStockAmountSort.Name = "radioButtonStockAmountSort";
+            radioButtonStockAmountSort.Size = new Size(153, 29);
+            radioButtonStockAmountSort.TabIndex = 12;
+            radioButtonStockAmountSort.Text = "成交金額排行";
+            radioButtonStockAmountSort.UseVisualStyleBackColor = true;
             // 
-            // radioButtonValueDN
+            // radioButtonDnSort
             // 
-            radioButtonValueDN.AutoSize = true;
-            radioButtonValueDN.Location = new Point(149, 36);
-            radioButtonValueDN.Name = "radioButtonValueDN";
-            radioButtonValueDN.Size = new Size(113, 29);
-            radioButtonValueDN.TabIndex = 7;
-            radioButtonValueDN.TabStop = true;
-            radioButtonValueDN.Text = "量縮排行";
-            radioButtonValueDN.UseVisualStyleBackColor = true;
+            radioButtonDnSort.AutoSize = true;
+            radioButtonDnSort.Location = new Point(257, 32);
+            radioButtonDnSort.Name = "radioButtonDnSort";
+            radioButtonDnSort.Size = new Size(113, 29);
+            radioButtonDnSort.TabIndex = 11;
+            radioButtonDnSort.Text = "跌幅排行";
+            radioButtonDnSort.UseVisualStyleBackColor = true;
             // 
-            // radioButtonValueUP
+            // radioButtonUpSort
             // 
-            radioButtonValueUP.AutoSize = true;
-            radioButtonValueUP.Location = new Point(21, 36);
-            radioButtonValueUP.Name = "radioButtonValueUP";
-            radioButtonValueUP.Size = new Size(113, 29);
-            radioButtonValueUP.TabIndex = 6;
-            radioButtonValueUP.TabStop = true;
-            radioButtonValueUP.Text = "量增排行";
-            radioButtonValueUP.UseVisualStyleBackColor = true;
+            radioButtonUpSort.AutoSize = true;
+            radioButtonUpSort.Location = new Point(138, 32);
+            radioButtonUpSort.Name = "radioButtonUpSort";
+            radioButtonUpSort.Size = new Size(113, 29);
+            radioButtonUpSort.TabIndex = 10;
+            radioButtonUpSort.Text = "漲幅排行";
+            radioButtonUpSort.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(765, 73);
+            label4.Location = new Point(737, 35);
             label4.Name = "label4";
-            label4.Size = new Size(52, 25);
+            label4.Size = new Size(92, 25);
             label4.TabIndex = 5;
-            label4.Text = "天數";
+            label4.Text = "排行筆數";
             // 
-            // textBox3
+            // textBoxCount
             // 
-            textBox3.Location = new Point(823, 68);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(39, 33);
-            textBox3.TabIndex = 5;
+            textBoxCount.Location = new Point(835, 30);
+            textBoxCount.Name = "textBoxCount";
+            textBoxCount.Size = new Size(39, 33);
+            textBoxCount.TabIndex = 5;
+            textBoxCount.Text = "30";
             // 
             // buttonPriceSearch
             // 
-            buttonPriceSearch.Location = new Point(879, 70);
+            buttonPriceSearch.Location = new Point(891, 32);
             buttonPriceSearch.Name = "buttonPriceSearch";
             buttonPriceSearch.Size = new Size(94, 29);
             buttonPriceSearch.TabIndex = 4;
             buttonPriceSearch.Text = "查詢";
             buttonPriceSearch.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPriceRangeDN
-            // 
-            radioButtonPriceRangeDN.AutoSize = true;
-            radioButtonPriceRangeDN.Location = new Point(407, 68);
-            radioButtonPriceRangeDN.Name = "radioButtonPriceRangeDN";
-            radioButtonPriceRangeDN.Size = new Size(133, 29);
-            radioButtonPriceRangeDN.TabIndex = 3;
-            radioButtonPriceRangeDN.TabStop = true;
-            radioButtonPriceRangeDN.Text = "值縮幅排行";
-            radioButtonPriceRangeDN.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPriceRangeUP
-            // 
-            radioButtonPriceRangeUP.AutoSize = true;
-            radioButtonPriceRangeUP.Location = new Point(268, 68);
-            radioButtonPriceRangeUP.Name = "radioButtonPriceRangeUP";
-            radioButtonPriceRangeUP.Size = new Size(133, 29);
-            radioButtonPriceRangeUP.TabIndex = 2;
-            radioButtonPriceRangeUP.TabStop = true;
-            radioButtonPriceRangeUP.Text = "值增幅排行";
-            radioButtonPriceRangeUP.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPriceDN
-            // 
-            radioButtonPriceDN.AutoSize = true;
-            radioButtonPriceDN.Location = new Point(149, 68);
-            radioButtonPriceDN.Name = "radioButtonPriceDN";
-            radioButtonPriceDN.Size = new Size(113, 29);
-            radioButtonPriceDN.TabIndex = 1;
-            radioButtonPriceDN.TabStop = true;
-            radioButtonPriceDN.Text = "值縮排行";
-            radioButtonPriceDN.UseVisualStyleBackColor = true;
-            // 
-            // radioButtonPriceUP
-            // 
-            radioButtonPriceUP.AutoSize = true;
-            radioButtonPriceUP.Location = new Point(21, 68);
-            radioButtonPriceUP.Name = "radioButtonPriceUP";
-            radioButtonPriceUP.Size = new Size(113, 29);
-            radioButtonPriceUP.TabIndex = 0;
-            radioButtonPriceUP.TabStop = true;
-            radioButtonPriceUP.Text = "值增排行";
-            radioButtonPriceUP.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(333, 21);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 33);
-            textBox2.TabIndex = 3;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(113, 21);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 33);
-            textBox1.TabIndex = 2;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(17, 29);
-            label2.Name = "label2";
-            label2.Size = new Size(92, 25);
-            label2.TabIndex = 0;
-            label2.Text = "日期開始";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(244, 29);
-            label3.Name = "label3";
-            label3.Size = new Size(92, 25);
-            label3.TabIndex = 1;
-            label3.Text = "日期結束";
+            buttonPriceSearch.Click += buttonPriceSearch_Click;
             // 
             // tabPageBackTest
             // 
@@ -323,34 +246,90 @@
             tabPageBackTest.Location = new Point(4, 34);
             tabPageBackTest.Name = "tabPageBackTest";
             tabPageBackTest.Padding = new Padding(3);
-            tabPageBackTest.Size = new Size(1138, 917);
+            tabPageBackTest.Size = new Size(1212, 917);
             tabPageBackTest.TabIndex = 1;
             tabPageBackTest.Text = "回測";
             tabPageBackTest.UseVisualStyleBackColor = true;
             // 
             // cartesianChart1
             // 
-            cartesianChart1.Location = new Point(8, 364);
+            cartesianChart1.Location = new Point(8, 296);
             cartesianChart1.Name = "cartesianChart1";
-            cartesianChart1.Size = new Size(1241, 545);
+            cartesianChart1.Size = new Size(1241, 613);
             cartesianChart1.TabIndex = 4;
             // 
             // groupBox3
             // 
+            groupBox3.Controls.Add(comboBoxRTMonthsE);
+            groupBox3.Controls.Add(comboBoxRTYearsE);
+            groupBox3.Controls.Add(comboBoxRTStockNo);
+            groupBox3.Controls.Add(comboBoxRTMonthsB);
+            groupBox3.Controls.Add(comboBoxRTYearsB);
             groupBox3.Controls.Add(groupBox5);
-            groupBox3.Controls.Add(textBoxCode);
             groupBox3.Controls.Add(label9);
             groupBox3.Controls.Add(groupBox4);
-            groupBox3.Controls.Add(textBox5);
-            groupBox3.Controls.Add(textBox6);
             groupBox3.Controls.Add(label7);
             groupBox3.Controls.Add(label8);
             groupBox3.Location = new Point(6, 6);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(1156, 352);
+            groupBox3.Size = new Size(1156, 284);
             groupBox3.TabIndex = 3;
             groupBox3.TabStop = false;
             groupBox3.Text = "●回測邏輯";
+            // 
+            // comboBoxRTMonthsE
+            // 
+            comboBoxRTMonthsE.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRTMonthsE.FormattingEnabled = true;
+            comboBoxRTMonthsE.Items.AddRange(new object[] { "12 月", "11 月", "10 月", "9 月", "8 月", "7 月", "6 月", "5 月", "4 月", "3 月", "2 月", "1 月" });
+            comboBoxRTMonthsE.Location = new Point(654, 67);
+            comboBoxRTMonthsE.Name = "comboBoxRTMonthsE";
+            comboBoxRTMonthsE.Size = new Size(95, 33);
+            comboBoxRTMonthsE.TabIndex = 17;
+            // 
+            // comboBoxRTYearsE
+            // 
+            comboBoxRTYearsE.AutoCompleteCustomSource.AddRange(new string[] { "113", "112", "111", "110", "109" });
+            comboBoxRTYearsE.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxRTYearsE.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxRTYearsE.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRTYearsE.FormattingEnabled = true;
+            comboBoxRTYearsE.Items.AddRange(new object[] { "民國 113 年", "民國 112 年", "民國 111 年", "民國 110 年", "民國 109 年" });
+            comboBoxRTYearsE.Location = new Point(477, 67);
+            comboBoxRTYearsE.Name = "comboBoxRTYearsE";
+            comboBoxRTYearsE.Size = new Size(169, 33);
+            comboBoxRTYearsE.TabIndex = 16;
+            // 
+            // comboBoxRTStockNo
+            // 
+            comboBoxRTStockNo.FormattingEnabled = true;
+            comboBoxRTStockNo.Location = new Point(112, 23);
+            comboBoxRTStockNo.Name = "comboBoxRTStockNo";
+            comboBoxRTStockNo.Size = new Size(221, 33);
+            comboBoxRTStockNo.TabIndex = 15;
+            // 
+            // comboBoxRTMonthsB
+            // 
+            comboBoxRTMonthsB.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRTMonthsB.FormattingEnabled = true;
+            comboBoxRTMonthsB.Items.AddRange(new object[] { "12 月", "11 月", "10 月", "9 月", "8 月", "7 月", "6 月", "5 月", "4 月", "3 月", "2 月", "1 月" });
+            comboBoxRTMonthsB.Location = new Point(289, 67);
+            comboBoxRTMonthsB.Name = "comboBoxRTMonthsB";
+            comboBoxRTMonthsB.Size = new Size(95, 33);
+            comboBoxRTMonthsB.TabIndex = 14;
+            // 
+            // comboBoxRTYearsB
+            // 
+            comboBoxRTYearsB.AutoCompleteCustomSource.AddRange(new string[] { "113", "112", "111", "110", "109" });
+            comboBoxRTYearsB.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxRTYearsB.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxRTYearsB.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxRTYearsB.FormattingEnabled = true;
+            comboBoxRTYearsB.Items.AddRange(new object[] { "民國 113 年", "民國 112 年", "民國 111 年", "民國 110 年", "民國 109 年" });
+            comboBoxRTYearsB.Location = new Point(112, 67);
+            comboBoxRTYearsB.Name = "comboBoxRTYearsB";
+            comboBoxRTYearsB.Size = new Size(169, 33);
+            comboBoxRTYearsB.TabIndex = 13;
             // 
             // groupBox5
             // 
@@ -363,9 +342,9 @@
             groupBox5.Controls.Add(label10);
             groupBox5.Controls.Add(textBox7);
             groupBox5.Controls.Add(button2);
-            groupBox5.Location = new Point(16, 226);
+            groupBox5.Location = new Point(16, 194);
             groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(1108, 114);
+            groupBox5.Size = new Size(1108, 76);
             groupBox5.TabIndex = 12;
             groupBox5.TabStop = false;
             groupBox5.Text = "條件項目-空";
@@ -373,7 +352,7 @@
             // checkBox1
             // 
             checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(396, 73);
+            checkBox1.Location = new Point(502, 32);
             checkBox1.Name = "checkBox1";
             checkBox1.Size = new Size(114, 29);
             checkBox1.TabIndex = 11;
@@ -383,7 +362,7 @@
             // checkBox2
             // 
             checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(205, 73);
+            checkBox2.Location = new Point(271, 32);
             checkBox2.Name = "checkBox2";
             checkBox2.Size = new Size(114, 29);
             checkBox2.TabIndex = 10;
@@ -393,7 +372,7 @@
             // checkBox3
             // 
             checkBox3.AutoSize = true;
-            checkBox3.Location = new Point(16, 73);
+            checkBox3.Location = new Point(622, 32);
             checkBox3.Name = "checkBox3";
             checkBox3.Size = new Size(114, 29);
             checkBox3.TabIndex = 9;
@@ -413,7 +392,7 @@
             // checkBox5
             // 
             checkBox5.AutoSize = true;
-            checkBox5.Location = new Point(205, 32);
+            checkBox5.Location = new Point(151, 32);
             checkBox5.Name = "checkBox5";
             checkBox5.Size = new Size(114, 29);
             checkBox5.TabIndex = 7;
@@ -433,7 +412,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(765, 73);
+            label10.Location = new Point(851, 34);
             label10.Name = "label10";
             label10.Size = new Size(52, 25);
             label10.TabIndex = 5;
@@ -441,26 +420,19 @@
             // 
             // textBox7
             // 
-            textBox7.Location = new Point(823, 68);
+            textBox7.Location = new Point(909, 29);
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(39, 33);
             textBox7.TabIndex = 5;
             // 
             // button2
             // 
-            button2.Location = new Point(880, 71);
+            button2.Location = new Point(966, 32);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 4;
             button2.Text = "查詢";
             button2.UseVisualStyleBackColor = true;
-            // 
-            // textBoxCode
-            // 
-            textBoxCode.Location = new Point(112, 28);
-            textBoxCode.Name = "textBoxCode";
-            textBoxCode.Size = new Size(125, 33);
-            textBoxCode.TabIndex = 6;
             // 
             // label9
             // 
@@ -484,7 +456,7 @@
             groupBox4.Controls.Add(button1);
             groupBox4.Location = new Point(14, 106);
             groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(1110, 114);
+            groupBox4.Size = new Size(1110, 73);
             groupBox4.TabIndex = 4;
             groupBox4.TabStop = false;
             groupBox4.Text = "條件項目-多";
@@ -492,7 +464,7 @@
             // checkBoxCheck4
             // 
             checkBoxCheck4.AutoSize = true;
-            checkBoxCheck4.Location = new Point(396, 73);
+            checkBoxCheck4.Location = new Point(624, 31);
             checkBoxCheck4.Name = "checkBoxCheck4";
             checkBoxCheck4.Size = new Size(114, 29);
             checkBoxCheck4.TabIndex = 11;
@@ -502,7 +474,7 @@
             // checkBoxCheck5
             // 
             checkBoxCheck5.AutoSize = true;
-            checkBoxCheck5.Location = new Point(205, 73);
+            checkBoxCheck5.Location = new Point(504, 31);
             checkBoxCheck5.Name = "checkBoxCheck5";
             checkBoxCheck5.Size = new Size(114, 29);
             checkBoxCheck5.TabIndex = 10;
@@ -512,7 +484,7 @@
             // checkBoxCheck6
             // 
             checkBoxCheck6.AutoSize = true;
-            checkBoxCheck6.Location = new Point(16, 73);
+            checkBoxCheck6.Location = new Point(395, 33);
             checkBoxCheck6.Name = "checkBoxCheck6";
             checkBoxCheck6.Size = new Size(94, 29);
             checkBoxCheck6.TabIndex = 9;
@@ -522,7 +494,7 @@
             // checkBoxCheck3
             // 
             checkBoxCheck3.AutoSize = true;
-            checkBoxCheck3.Location = new Point(396, 32);
+            checkBoxCheck3.Location = new Point(275, 30);
             checkBoxCheck3.Name = "checkBoxCheck3";
             checkBoxCheck3.Size = new Size(114, 29);
             checkBoxCheck3.TabIndex = 8;
@@ -532,7 +504,7 @@
             // checkBoxCheck2
             // 
             checkBoxCheck2.AutoSize = true;
-            checkBoxCheck2.Location = new Point(205, 32);
+            checkBoxCheck2.Location = new Point(153, 32);
             checkBoxCheck2.Name = "checkBoxCheck2";
             checkBoxCheck2.Size = new Size(94, 29);
             checkBoxCheck2.TabIndex = 7;
@@ -552,7 +524,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(765, 73);
+            label6.Location = new Point(853, 33);
             label6.Name = "label6";
             label6.Size = new Size(52, 25);
             label6.TabIndex = 5;
@@ -560,33 +532,20 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(823, 68);
+            textBox4.Location = new Point(911, 28);
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(39, 33);
             textBox4.TabIndex = 5;
             // 
             // button1
             // 
-            button1.Location = new Point(880, 71);
+            button1.Location = new Point(968, 31);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 4;
             button1.Text = "查詢";
             button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(332, 67);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 33);
-            textBox5.TabIndex = 3;
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(112, 67);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(125, 33);
-            textBox6.TabIndex = 2;
+            button1.Click += button1_Click;
             // 
             // label7
             // 
@@ -600,7 +559,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(243, 75);
+            label8.Location = new Point(390, 75);
             label8.Name = "label8";
             label8.Size = new Size(92, 25);
             label8.TabIndex = 1;
@@ -608,23 +567,78 @@
             // 
             // tabPageSetup
             // 
+            tabPageSetup.Controls.Add(comboBoxStockNo);
+            tabPageSetup.Controls.Add(label11);
+            tabPageSetup.Controls.Add(comboBoxMonths);
+            tabPageSetup.Controls.Add(comboBoxYears);
+            tabPageSetup.Controls.Add(label12);
             tabPageSetup.Controls.Add(buttonDownload);
             tabPageSetup.Controls.Add(label1);
             tabPageSetup.Location = new Point(4, 34);
             tabPageSetup.Name = "tabPageSetup";
-            tabPageSetup.Size = new Size(1138, 917);
+            tabPageSetup.Size = new Size(1212, 917);
             tabPageSetup.TabIndex = 2;
             tabPageSetup.Text = "設定";
             tabPageSetup.UseVisualStyleBackColor = true;
             // 
+            // comboBoxStockNo
+            // 
+            comboBoxStockNo.FormattingEnabled = true;
+            comboBoxStockNo.Location = new Point(520, 40);
+            comboBoxStockNo.Name = "comboBoxStockNo";
+            comboBoxStockNo.Size = new Size(221, 33);
+            comboBoxStockNo.TabIndex = 9;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(417, 43);
+            label11.Name = "label11";
+            label11.Size = new Size(97, 25);
+            label11.TabIndex = 8;
+            label11.Text = "股票代碼:";
+            // 
+            // comboBoxMonths
+            // 
+            comboBoxMonths.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxMonths.FormattingEnabled = true;
+            comboBoxMonths.Items.AddRange(new object[] { "12 月", "11 月", "10 月", "9 月", "8 月", "7 月", "6 月", "5 月", "4 月", "3 月", "2 月", "1 月" });
+            comboBoxMonths.Location = new Point(294, 40);
+            comboBoxMonths.Name = "comboBoxMonths";
+            comboBoxMonths.Size = new Size(95, 33);
+            comboBoxMonths.TabIndex = 7;
+            // 
+            // comboBoxYears
+            // 
+            comboBoxYears.AutoCompleteCustomSource.AddRange(new string[] { "113", "112", "111", "110", "109" });
+            comboBoxYears.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxYears.AutoCompleteSource = AutoCompleteSource.ListItems;
+            comboBoxYears.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxYears.FormattingEnabled = true;
+            comboBoxYears.Items.AddRange(new object[] { "民國 113 年", "民國 112 年", "民國 111 年", "民國 110 年", "民國 109 年" });
+            comboBoxYears.Location = new Point(117, 40);
+            comboBoxYears.Name = "comboBoxYears";
+            comboBoxYears.Size = new Size(169, 33);
+            comboBoxYears.TabIndex = 6;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(13, 43);
+            label12.Name = "label12";
+            label12.Size = new Size(112, 25);
+            label12.TabIndex = 5;
+            label12.Text = "資料日期：";
+            // 
             // buttonDownload
             // 
-            buttonDownload.Location = new Point(226, 10);
+            buttonDownload.Location = new Point(758, 41);
             buttonDownload.Name = "buttonDownload";
             buttonDownload.Size = new Size(94, 29);
             buttonDownload.TabIndex = 1;
             buttonDownload.Text = "下載";
             buttonDownload.UseVisualStyleBackColor = true;
+            buttonDownload.Click += buttonDownload_Click;
             // 
             // label1
             // 
@@ -635,11 +649,53 @@
             label1.TabIndex = 0;
             label1.Text = "每日收盤價格資料更新";
             // 
+            // radioButtonSAll
+            // 
+            radioButtonSAll.AutoSize = true;
+            radioButtonSAll.Checked = true;
+            radioButtonSAll.Location = new Point(42, 35);
+            radioButtonSAll.Name = "radioButtonSAll";
+            radioButtonSAll.Size = new Size(93, 29);
+            radioButtonSAll.TabIndex = 17;
+            radioButtonSAll.TabStop = true;
+            radioButtonSAll.Text = "不分類";
+            radioButtonSAll.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonE
+            // 
+            radioButtonE.AutoSize = true;
+            radioButtonE.Location = new Point(399, 35);
+            radioButtonE.Name = "radioButtonE";
+            radioButtonE.Size = new Size(66, 29);
+            radioButtonE.TabIndex = 16;
+            radioButtonE.Text = "ETF";
+            radioButtonE.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonB
+            // 
+            radioButtonB.AutoSize = true;
+            radioButtonB.Location = new Point(280, 35);
+            radioButtonB.Name = "radioButtonB";
+            radioButtonB.Size = new Size(73, 29);
+            radioButtonB.TabIndex = 15;
+            radioButtonB.Text = "上櫃";
+            radioButtonB.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonM
+            // 
+            radioButtonM.AutoSize = true;
+            radioButtonM.Location = new Point(161, 35);
+            radioButtonM.Name = "radioButtonM";
+            radioButtonM.Size = new Size(73, 29);
+            radioButtonM.TabIndex = 14;
+            radioButtonM.Text = "上市";
+            radioButtonM.UseVisualStyleBackColor = true;
+            // 
             // KDayCandlestickApp
             // 
             AutoScaleDimensions = new SizeF(9F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1146, 955);
+            ClientSize = new Size(1220, 955);
             Controls.Add(tabControl1);
             Name = "KDayCandlestickApp";
             Text = "KDayCandlestickApp";
@@ -647,7 +703,7 @@
             tabControl1.ResumeLayout(false);
             tabPageChoose.ResumeLayout(false);
             tabPageChoose.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewDaily).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
@@ -673,26 +729,13 @@
         private Label label1;
         private Button buttonDownload;
         private GroupBox groupBox1;
-        private Label label2;
-        private Label label3;
-        private TextBox textBox2;
-        private TextBox textBox1;
         private GroupBox groupBox2;
-        private RadioButton radioButtonPriceRangeDN;
-        private RadioButton radioButtonPriceRangeUP;
-        private RadioButton radioButtonPriceDN;
-        private RadioButton radioButtonPriceUP;
-        private RadioButton radioButtonValueRateDN;
-        private RadioButton radioButtonValueRangeUP;
-        private RadioButton radioButtonValueDN;
-        private RadioButton radioButtonValueUP;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox textBoxCount;
         private Button buttonPriceSearch;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewDaily;
         private Label label5;
         private GroupBox groupBox3;
-        private TextBox textBoxCode;
         private Label label9;
         private GroupBox groupBox4;
         private CheckBox checkBoxCheck4;
@@ -704,8 +747,6 @@
         private Label label6;
         private TextBox textBox4;
         private Button button1;
-        private TextBox textBox5;
-        private TextBox textBox6;
         private Label label7;
         private Label label8;
         private GroupBox groupBox5;
@@ -719,5 +760,23 @@
         private TextBox textBox7;
         private Button button2;
         private LiveChartsCore.SkiaSharpView.WinForms.CartesianChart cartesianChart1;
+        private ComboBox comboBoxStockNo;
+        private Label label11;
+        private ComboBox comboBoxMonths;
+        private ComboBox comboBoxYears;
+        private Label label12;
+        private ComboBox comboBoxRTMonthsE;
+        private ComboBox comboBoxRTYearsE;
+        private ComboBox comboBoxRTStockNo;
+        private ComboBox comboBoxRTMonthsB;
+        private ComboBox comboBoxRTYearsB;
+        private RadioButton radioButtonDnSort;
+        private RadioButton radioButtonUpSort;
+        private RadioButton radioButtonStockAmountSort;
+        private RadioButton radioButtonToday;
+        private RadioButton radioButtonSAll;
+        private RadioButton radioButtonE;
+        private RadioButton radioButtonB;
+        private RadioButton radioButtonM;
     }
 }
